@@ -11,7 +11,10 @@ fn parse_file<R: Read>(input: R) {
     for line in br.lines() {
         let str_line = line.expect("Failed to read line");
         let vec = string_to_vector(str_line);
-        println!("{:?}", vec);
+        let (vec1, vec2) = split_vec(&vec);
+        println!("\n{:?}", vec);
+        println!("{:?}", vec1);
+        println!("{:?}", vec2);
     }
 }
 
@@ -22,4 +25,14 @@ fn string_to_vector(line: String) -> Vec<char> {
         vec.push(iter.next().unwrap());
     }
     vec
+}
+
+fn parse_line(vec: Vec<char>) -> u32 {
+    23
+}
+
+fn split_vec(vec: &Vec<char>) -> (Vec<char>, Vec<char>) {
+    let vec1: Vec<char> = vec[0..vec.len()/2].to_vec();
+    let vec2: Vec<char> = vec[vec.len()/2..vec.len()].to_vec();
+    (vec1, vec2)
 }

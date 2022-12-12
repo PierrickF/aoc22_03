@@ -1,11 +1,10 @@
 use std::fs::File;
 use std::io::Error;
-
-use crate::task_1::parse_file::parse_file;
+use task_1::parse_file::parse_file as init_task_1;
 
 pub mod task_1;
 
 fn main() -> Result<(), Error> {
-    parse_file(File::open("input")?);
+    init_task_1(File::open("input")?);
     Ok(())
 }
